@@ -1,24 +1,23 @@
 import streamlit as st
 import sqlite3
-import os
-from dotenv import load_dotenv
 
-# 1. Page Config
+# 1. Page Configuration (Hamesha top par)
 st.set_page_config(page_title="PropAI Marketing Studio", layout="wide")
-# 2. CSS
+
+# 2. CSS Styling (Is block ko poora copy karein)
 st.markdown("""
     <style>
-    /* 1. Main Background - Deep Space (#07132D) */
+    /* Main Background - Deep Space (#07132D) */
     .stApp, header, [data-testid="stHeader"] {
         background-color: #07132D !important;
     }
     
-    /* 2. Sidebar Background - Regel Navy (#002366) */
+    /* Sidebar Background - Regel Navy (#002366) */
     [data-testid="stSidebar"] {
         background-color: #002366 !important;
     }
 
-    /* 3. Credentials (Inputs/Select) - Glaucous (#4F80BC) */
+    /* Inputs/Credentials - Glaucous (#4F80BC) */
     div[data-baseweb="select"] > div, 
     div[data-baseweb="input"] > div, 
     input, 
@@ -26,46 +25,48 @@ st.markdown("""
     div[data-testid="stFileUploader"],
     div[data-testid="stFileUploader"] > section {
         background-color: #4F80BC !important;
-        color: #000000 !
-# 2. Database Setup (SQL logic)
-def init_db():
-    conn = sqlite3.connect('propai_studio.db')
-    c = conn.cursor()
-    c.execute('''CREATE TABLE IF NOT EXISTS leads 
-                 (id INTEGER PRIMARY KEY, property_type TEXT, bedrooms INTEGER, bathrooms REAL)''')
-    conn.commit()
-    conn.close()
+        color: #000000 !important;
+    }
 
-init_db()
+    /* Buttons - Glaucous (#4F80BC) */
+    div.stButton > button, 
+    button[kind="secondary"] {
+        background-color: #4F80BC !important;
+        color: #000000 !important;
+        border: none !important;
+    }
 
-# 3. Main UI Layout
-st.title("🏢 PropAI Marketing Studio")
+    /* Number Input fix for plus/minus area */
+    div[data-testid="stNumberInput"] > div > div {
+        background-color: #4F80BC !important;
+    }
 
-# Sidebar
-with st.sidebar:
-    st.header("Project Configuration")
-    prop_type = st.selectbox("Property Type", ["Single Family", "Luxury Estate", "Condo"])
-    beds = st.number_input("Bedrooms", min_value=1, value=3)
-    baths = st.number_input("Bathrooms", min_value=1.0, value=2.0)
+    /* White Text for all elements */
+    label, p, h1, h2, h3, .stMarkdown, .stFileUploader, .stNumberInput {
+        color: #FFFFFF !important;
+    }
     
-    if st.button("Save Property Data"):
-        conn = sqlite3.connect('propai_studio.db')
-        c = conn.cursor()
-        c.execute("INSERT INTO leads (property_type, bedrooms, bathrooms) VALUES (?, ?, ?)", (prop_type, beds, baths))
-        conn.commit()
-        conn.close()
-        st.success("Data saved to database!")
+    /* Input field text force black */
+    input, textarea, div[data-baseweb="select"] > div {
+        color: #000000 !important;
+    }
+    </style>
+""", unsafe_allow_html=True)
 
-# Main Content Area
-col1, col2 = st.columns(2)
-with col1:
-    st.subheader("Asset Upload")
-    st.file_uploader("Upload Property Photos", type=['jpg', 'png'])
+# 3. Baaki ka App Logic
+st.title("PropAI Marketing Studio")
+st.sidebar.header("Project Configuration")
 
-with col2:
-    st.subheader("Generated Copy")
-    if st.button("Generate Marketing Copy"):
-        # Yahan aapka AI logic integrate hoga
-        st.info("Generating professional copy for " + prop_type + "...")
-        st.write("---")
-        st.write("Luxurious " + str(beds) + " bedroom home featuring " + str(baths) + " baths. Perfect for modern living.")
+property_type = st.sidebar.selectbox("Property Type", ["Single Family", "Luxury Estate", "Apartment"])
+bedrooms = st.sidebar.number_input("Bedrooms", min_value=1, value=3)
+bathrooms = st.sidebar.number_input("Bathrooms", min_value=1.0, value=2.0, step=0.5)
+
+if st.sidebar.button("Save Property Data"):
+    st.sidebar.success("Data Saved!")
+
+st.header("Asset Upload")
+uploaded_file = st.file_uploader("Upload Property Photos", type=['jpg', 'png'])
+
+st.header("Generated Copy")
+if st.button("Generate Marketing Copy"):
+    st.write("Generating your copy...")
