@@ -5,23 +5,33 @@ from dotenv import load_dotenv
 
 # 1. Page Config
 st.set_page_config(page_title="PropAI Marketing Studio", layout="wide")
-
-# CSS Styling
+# 2. CSS
 st.markdown("""
     <style>
-    /* Sabhi input, select, aur button elements ko target karna */
-    .stSelectbox, .stNumberInput, .stTextInput, .stTextArea, div[data-baseweb="base-input"] {
-        background-color: #e6f0ff !important;
+    /* Poore page ka background Navy Blue karna */
+    .stApp {
+        background-color: #000080 !important;
     }
     
-    /* Text ka color black karna */
-    .stSelectbox div, .stNumberInput input, .stTextInput input, .stTextArea textarea, label {
+    /* Sidebar ka background Navy Blue karna */
+    [data-testid="stSidebar"] {
+        background-color: #000080 !important;
+    }
+
+    /* Input boxes aur dropdowns ka background Sky Blue aur text Black */
+    div[data-baseweb="select"], div[data-baseweb="input"], textarea, div[data-testid="stFileUploader"] {
+        background-color: #87CEEB !important;
         color: #000000 !important;
     }
+
+    /* Input labels aur normal text ka color White (Navy background pe dikhayi dene ke liye) */
+    .stApp, label, p {
+        color: #FFFFFF !important;
+    }
     
-    /* Dropdown menu ke andar ka background */
-    div[role="listbox"] {
-        background-color: #e6f0ff !important;
+    /* Input box ke andar ka text Black */
+    input, textarea, div[data-baseweb="select"] div {
+        color: #000000 !important;
     }
     </style>
 """, unsafe_allow_html=True)
