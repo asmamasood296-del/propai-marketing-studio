@@ -8,34 +8,41 @@ st.set_page_config(page_title="PropAI Marketing Studio", layout="wide")
 # 2. CSS
 st.markdown("""
     <style>
-    /* 1. Main Dashboard Base Color */
-    .stApp {
+    /* 1. Main Dashboard Base aur Header */
+    .stApp, header, [data-testid="stHeader"] {
         background-color: #123A63 !important;
     }
     
-    /* 2. Sidebar Color */
+    /* 2. Sidebar Background */
     [data-testid="stSidebar"] {
         background-color: #123A63 !important;
     }
 
-    /* 3. Input Boxes aur Buttons (Slate Grey) */
+    /* 3. Sabhi Input Boxes aur File Uploader - Slate Grey */
     div[data-baseweb="select"] > div, 
     div[data-baseweb="input"] > div, 
     input, 
     textarea, 
     div[data-testid="stFileUploader"],
+    div[data-testid="stFileUploader"] > section {
+        background-color: #5F748C !important;
+        color: #000000 !important;
+    }
+
+    /* 4. Buttons - Slate Grey */
     div.stButton > button {
         background-color: #5F748C !important;
-        color: #000000 !important; /* Writing Black */
+        color: #000000 !important;
+        border: none !important;
     }
 
-    /* 4. Text ka color (White takay Dark Blue par saaf dikhayi day) */
-    label, p, h1, h2, h3, .stMarkdown {
+    /* 5. Sab Text White (Dark Blue base ke liye) */
+    label, p, h1, h2, h3, .stMarkdown, .stFileUploader {
         color: #FFFFFF !important;
     }
-
-    /* Dropdown text color */
-    div[data-baseweb="select"] > div > div {
+    
+    /* Input ke andar ki writing Black */
+    input, textarea, div[data-baseweb="select"] > div {
         color: #000000 !important;
     }
     </style>
