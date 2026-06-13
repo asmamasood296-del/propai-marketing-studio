@@ -7,48 +7,32 @@ st.set_page_config(page_title="PropAI Marketing Studio", layout="wide")
 # 2. CSS Styling (Is block ko poora copy karein)
 st.markdown("""
     <style>
-    /* Main Background - Deep Space (#07132D) */
-    .stApp, header, [data-testid="stHeader"] {
+    /* 1. Dashboard ka poora base background */
+    .stApp {
         background-color: #07132D !important;
     }
-    
-    /* Sidebar Background - Regel Navy (#002366) */
+
+    /* 2. Sidebar ka background */
     [data-testid="stSidebar"] {
-        background-color: #002366 !important;
+        background-color: #07132D !important;
     }
 
-    /* Inputs/Credentials - Glaucous (#4F80BC) */
+    /* 3. Sabhi inputs, file uploader, aur buttons ka background - FORCE DEEPSPACE */
     div[data-baseweb="select"] > div, 
     div[data-baseweb="input"] > div, 
     input, 
     textarea, 
     div[data-testid="stFileUploader"],
-    div[data-testid="stFileUploader"] > section {
-        background-color: #4F80BC !important;
-        color: #000000 !important;
-    }
-
-    /* Buttons - Glaucous (#4F80BC) */
-    div.stButton > button, 
-    button[kind="secondary"] {
-        background-color: #4F80BC !important;
-        color: #000000 !important;
-        border: none !important;
-    }
-
-    /* Number Input fix for plus/minus area */
-    div[data-testid="stNumberInput"] > div > div {
-        background-color: #4F80BC !important;
-    }
-
-    /* White Text for all elements */
-    label, p, h1, h2, h3, .stMarkdown, .stFileUploader, .stNumberInput {
+    div[data-testid="stFileUploader"] > section,
+    div.stButton > button {
+        background-color: #07132D !important;
+        border: 1px solid #4F80BC !important; /* Border halka sa blue rakha hai taake box alag dikhe */
         color: #FFFFFF !important;
     }
-    
-    /* Input field text force black */
-    input, textarea, div[data-baseweb="select"] > div {
-        color: #000000 !important;
+
+    /* 4. Text ka color white */
+    label, p, h1, h2, h3, .stMarkdown {
+        color: #FFFFFF !important;
     }
     </style>
 """, unsafe_allow_html=True)
