@@ -8,34 +8,38 @@ st.set_page_config(page_title="PropAI Marketing Studio", layout="wide")
 # 2. CSS
 st.markdown("""
     <style>
-    /* Poore page ka background Navy Blue karna */
+    /* 1. Main Dashboard Base Color */
     .stApp {
-        background-color: #000080 !important;
+        background-color: #123A63 !important;
     }
     
-    /* Sidebar ka background Navy Blue karna */
+    /* 2. Sidebar Color */
     [data-testid="stSidebar"] {
-        background-color: #000080 !important;
+        background-color: #123A63 !important;
     }
 
-    /* Input boxes aur dropdowns ka background Sky Blue aur text Black */
-    div[data-baseweb="select"], div[data-baseweb="input"], textarea, div[data-testid="stFileUploader"] {
-        background-color: #87CEEB !important;
-        color: #000000 !important;
+    /* 3. Input Boxes aur Buttons (Slate Grey) */
+    div[data-baseweb="select"] > div, 
+    div[data-baseweb="input"] > div, 
+    input, 
+    textarea, 
+    div[data-testid="stFileUploader"],
+    div.stButton > button {
+        background-color: #5F748C !important;
+        color: #000000 !important; /* Writing Black */
     }
 
-    /* Input labels aur normal text ka color White (Navy background pe dikhayi dene ke liye) */
-    .stApp, label, p {
+    /* 4. Text ka color (White takay Dark Blue par saaf dikhayi day) */
+    label, p, h1, h2, h3, .stMarkdown {
         color: #FFFFFF !important;
     }
-    
-    /* Input box ke andar ka text Black */
-    input, textarea, div[data-baseweb="select"] div {
+
+    /* Dropdown text color */
+    div[data-baseweb="select"] > div > div {
         color: #000000 !important;
     }
     </style>
 """, unsafe_allow_html=True)
-
 # 2. Database Setup (SQL logic)
 def init_db():
     conn = sqlite3.connect('propai_studio.db')
