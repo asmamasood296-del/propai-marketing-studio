@@ -8,45 +8,25 @@ st.set_page_config(page_title="PropAI Marketing Studio", layout="wide")
 # 2. CSS
 st.markdown("""
     <style>
-    /* 1. Main Dashboard Base aur Header */
+    /* 1. Main Background - Deep Space (#07132D) */
     .stApp, header, [data-testid="stHeader"] {
-        background-color: #123A63 !important;
+        background-color: #07132D !important;
     }
     
-    /* 2. Sidebar Background */
+    /* 2. Sidebar Background - Regel Navy (#002366) */
     [data-testid="stSidebar"] {
-        background-color: #123A63 !important;
+        background-color: #002366 !important;
     }
 
-    /* 3. Sabhi Input Boxes aur File Uploader - Slate Grey */
+    /* 3. Credentials (Inputs/Select) - Glaucous (#4F80BC) */
     div[data-baseweb="select"] > div, 
     div[data-baseweb="input"] > div, 
     input, 
     textarea, 
     div[data-testid="stFileUploader"],
     div[data-testid="stFileUploader"] > section {
-        background-color: #5F748C !important;
-        color: #000000 !important;
-    }
-
-    /* 4. Buttons - Slate Grey */
-    div.stButton > button {
-        background-color: #5F748C !important;
-        color: #000000 !important;
-        border: none !important;
-    }
-
-    /* 5. Sab Text White (Dark Blue base ke liye) */
-    label, p, h1, h2, h3, .stMarkdown, .stFileUploader {
-        color: #FFFFFF !important;
-    }
-    
-    /* Input ke andar ki writing Black */
-    input, textarea, div[data-baseweb="select"] > div {
-        color: #000000 !important;
-    }
-    </style>
-""", unsafe_allow_html=True)
+        background-color: #4F80BC !important;
+        color: #000000 !
 # 2. Database Setup (SQL logic)
 def init_db():
     conn = sqlite3.connect('propai_studio.db')
