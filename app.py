@@ -9,12 +9,23 @@ st.set_page_config(page_title="PropAI Marketing Studio", layout="wide")
 # CSS Styling
 st.markdown("""
     <style>
-    div[data-baseweb="select"], div[data-baseweb="input"], textarea {
+    /* Sabhi input, select, aur button elements ko target karna */
+    .stSelectbox, .stNumberInput, .stTextInput, .stTextArea, div[data-baseweb="base-input"] {
         background-color: #e6f0ff !important;
+    }
+    
+    /* Text ka color black karna */
+    .stSelectbox div, .stNumberInput input, .stTextInput input, .stTextArea textarea, label {
         color: #000000 !important;
+    }
+    
+    /* Dropdown menu ke andar ka background */
+    div[role="listbox"] {
+        background-color: #e6f0ff !important;
     }
     </style>
 """, unsafe_allow_html=True)
+
 # 2. Database Setup (SQL logic)
 def init_db():
     conn = sqlite3.connect('propai_studio.db')
