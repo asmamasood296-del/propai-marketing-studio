@@ -1,9 +1,9 @@
-PropAI Marketing Studio 🏠✨
+PropAI Marketing Studio 🏠
 An Advanced AI-Driven Real Estate Automation Suite
 
 PropAI Marketing Studio is a cutting-edge SaaS tool designed to automate real estate property marketing. It leverages Multimodal AI (GPT-4o) to analyze property photos and generate professional, high-converting sales descriptions instantly.
 
-🚀 Key Features
+ Key Features
 Vision-Powered AI: Upload property photos, and let the AI analyze visual details to craft the perfect description.
 
 Database Persistence: Securely save and manage property marketing data using SQLite.
@@ -14,7 +14,7 @@ Security Hardened: Implemented environment-variable protection via Streamlit Sec
 
 Responsive UI: Clean, dark-themed "DeepSpace" interface optimized for user experience.
 
-🛠 Tech Stack
+ Tech Stack
 Framework: Streamlit
 
 AI Engine: OpenAI GPT-4o (Vision Capabilities)
